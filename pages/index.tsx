@@ -6,7 +6,7 @@ import dataContext from "../context/dataContext";
 import { DataObject } from "../context/datatype";
 
 import { useData } from "../hooks/useData";
-import useFetch from "../hooks/useFetch";
+import FetchData from "../hooks/FetchData";
 
 import Layout from "../components/Layout";
 import Loading from "../components/Loading";
@@ -18,7 +18,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     setLoading(true);
-    useFetch(1).then((res) => {
+    FetchData(1).then((res) => {
       setData([...data, ...res.results]);
       
       console.log("res", res.results);

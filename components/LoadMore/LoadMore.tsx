@@ -2,11 +2,11 @@ import React, { useState, useEffect, useContext, useCallback } from "react";
 import LoadingIcon from "./loading.svg";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import useFetch from "../../hooks/useFetch";
+import FetchData from "../../hooks/FetchData";
 import dataContext from "../../context/dataContext";
 import pageContext from "../../context/pageNumber";
 
-const LoadMore = () => {
+const LoadMore = ():JSX.Element => {
   const { pathname, asPath, query } = useRouter();
   const { data, setData, isLoading, setLoading } = useContext(dataContext);
   const [pagesLoaded, setPagesLoaded] = useState(1);
@@ -16,7 +16,7 @@ const LoadMore = () => {
       onClick={() => {
         setPagesLoaded(pagesLoaded + 1);
         setLoading(true);
-        useFetch(pagesLoaded + 1).then((res) => {
+        FetchData(pagesLoaded + 1).then((res) => {
           console.log("data", data);
           console.log("test", [...data, ...res.results]);
           setData([...data, ...res.results]);

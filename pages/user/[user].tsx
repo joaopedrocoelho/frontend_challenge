@@ -7,7 +7,7 @@ import dataContext from "../../context/dataContext";
 import { DataObject, Result } from "../../context/datatype";
 
 import Layout from "../../components/Layout";
-import useFetch from "../../hooks/useFetch";
+import FetchData from "../../hooks/FetchData";
 import Loading from "../../components/Loading";
 import UserModal from "../../components/UserModal/UserModal";
 

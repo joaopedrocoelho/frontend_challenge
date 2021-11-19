@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import dataContext from '../context/dataContext';
 import { DataObject } from "../context/datatype";
 import { useRouter } from "next/router";
-import useFetch from "../hooks/useFetch";
+import FetchData from "../hooks/FetchData";
 
 import type { AppProps } from 'next/app'
 import { useData } from '../hooks/useData';

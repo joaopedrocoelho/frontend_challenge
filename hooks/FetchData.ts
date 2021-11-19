@@ -1,3 +1,4 @@
+ import {useCallback} from 'react';
 type nationalities =
   | "AU"
   | "BR"
@@ -17,11 +18,11 @@ type nationalities =
   | "TR"
   | "US";
 
-const useFetch = async (page: number) => {
+const FetchData = async (page: number) => {
   const url = `https://randomuser.me/api/?page=${page}&results=50&seed=pedro`;
 
   const response = await fetch(url);
   return response.json();
 };
 
-export default useFetch;
+export default FetchData;
