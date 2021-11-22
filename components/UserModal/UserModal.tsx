@@ -9,9 +9,10 @@ import Adress from "./icons/address.svg";
 import Hashtag from "./icons/hashtag.svg";
 import Flag from "./icons/flag.svg";
 import Share from "./icons/share.svg";
+import Close from './icons/close.svg';
 
 import { titleCase } from "title-case";
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 
 interface Props {
   picture: string;
@@ -23,12 +24,14 @@ interface Props {
   nationality: string;
   address: string;
   id: string;
+  
 }
 
 const UserModal = (props: Props): JSX.Element => {
-    const {asPath} = useRouter()
+    const {asPath, push} = useRouter()
 
-    console.log('asPath', asPath)
+    const userURL = 'https://frontend-challenge-8emyzzuip-joaopedrocoelho.vercel.app'+asPath
+    
 
   const imageSrc =
     props.gender === "male"
@@ -47,6 +50,9 @@ const UserModal = (props: Props): JSX.Element => {
         transform -translate-x-2/4 
         bg-green-100 z-20 flex flex-col items-center rounded-3xl`}
     >
+      <button onClick={() => push('/')} 
+      className={`absolute right-4 top-4 rounded-full bg-green-500 w-8 h-8`}>
+        <Close className={`w-4 h-4 text-green-900 fill-current m-auto`} /> </button>
       <div className={`rounded-full overflow-hidden w-32 h-32 -mt-16`}>
         <Image src={imageSrc} width={130} height={130} />
       </div>
@@ -120,7 +126,11 @@ const UserModal = (props: Props): JSX.Element => {
           {props.id}
         </div>
       </div>
-        <button className={`mb-4 rounded-lg flex flex-row flex-nowrap 
+        <button 
+        onClick={() => {
+            navigator.clipboard.writeText(userURL)
+        }}
+        className={`mb-4 rounded-lg flex flex-row flex-nowrap 
         place-items-center p-4 bg-green-300 w-max
         cursor-pointer`} >
             <Share className={`w-6 text-green-900 fill-current mr-3`}/>

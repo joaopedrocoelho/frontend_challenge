@@ -15,6 +15,7 @@ const User: NextPage = () => {
   const { data, setData, isLoading, setLoading } = useContext(dataContext);
   const [userIndex, setUserIndex] = useState(-1);
   const { pathname, asPath, query } = useRouter();
+  const [blur, setBlur] = useState(true)
 
   useEffect(() => {
     console.log('query', query)
@@ -24,7 +25,9 @@ const User: NextPage = () => {
 
   return (
     <>
-      <Layout />
+
+      <Layout blur={blur}/>
+      
       {query.user && <UserModal
       gender={query.gender as string}
       fullName={query.user as string}
@@ -35,7 +38,7 @@ const User: NextPage = () => {
       address={query.address as string}
       id={query.id as string}
       picture={query.picture as string}
-
+    
 
       /> }
     </>
