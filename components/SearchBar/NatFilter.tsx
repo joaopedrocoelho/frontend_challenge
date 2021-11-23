@@ -28,16 +28,11 @@ const NatFilter = () => {
     const {color} = useContext(ThemeContext);
   const [selected, setSelected] = useState<Nationalities>("Any");
   const [open, setOpen] = useState(false);
-  const [animation, setAnimation] = useState(`dropDown`);
+
+ 
   const { setNationality } = useContext(searchContext);
 
-  useEffect(() => {
-    if (open) {
-      setAnimation(`dropDown`);
-    } else {
-      setAnimation(`dropDownReverse`);
-    }
-  }, [open]);
+  
 
   useEffect(() => {
       setNationality(selected);
@@ -62,7 +57,8 @@ const NatFilter = () => {
       <ul
         className={`absolute 
       flex-col z-50 mt-11
-      flex ${animation}
+      
+      flex ${open ? 'dropDown' : `opacity-0 pointer-events-none transform  duration-300 scale-y-0 ease-out origin-top `}
       bg-${color}-100 rounded-md shadow-lg
       w-20
       `}
