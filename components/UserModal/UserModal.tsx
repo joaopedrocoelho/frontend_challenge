@@ -30,7 +30,7 @@ interface Props {
 const UserModal = (props: Props): JSX.Element => {
     const {asPath, push} = useRouter()
 
-    const userURL = 'https://frontend-challenge-8emyzzuip-joaopedrocoelho.vercel.app'+asPath
+    const userURL = 'https://frontend-challenge-joaopedrocoelho.vercel.app'+asPath
     
 
   const imageSrc =
