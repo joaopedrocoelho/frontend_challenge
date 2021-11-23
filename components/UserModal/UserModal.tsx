@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import Female from "./icons/female.svg";
 import Male from "./icons/male.svg";
@@ -10,9 +10,11 @@ import Hashtag from "./icons/hashtag.svg";
 import Flag from "./icons/flag.svg";
 import Share from "./icons/share.svg";
 import Close from './icons/close.svg';
+import User from '../Nav/user.svg';
 
 import { titleCase } from "title-case";
 import { Router, useRouter } from "next/router";
+import ThemeContext from "../../context/themeContext";
 
 interface Props {
   picture: string;
@@ -29,6 +31,7 @@ interface Props {
 
 const UserModal = (props: Props): JSX.Element => {
     const {asPath, push} = useRouter()
+    const  {color} = useContext(ThemeContext)
 
     const userURL = 'https://frontend-challenge-joaopedrocoelho.vercel.app'+asPath
     
@@ -53,8 +56,11 @@ const UserModal = (props: Props): JSX.Element => {
       <button onClick={() => push('/')} 
       className={`absolute right-4 top-4 rounded-full bg-${color}-500 w-8 h-8`}>
         <Close className={`w-4 h-4 text-${color}-900 fill-current m-auto`} /> </button>
-      <div className={`rounded-full overflow-hidden w-32 h-32 -mt-16`}>
-        <Image src={imageSrc} width={130} height={130} />
+      <div className={`rounded-full overflow-hidden w-32 h-32 -mt-16 bg-${color}-400 user-image`}>
+       <Image src={imageSrc} width={130} height={130} className={`z-20 absolute transform`} />
+        <User className={`w-full h-full p-8 text-${color}-900 fill-current m-auto z-0 transform -translate-y-full`} />
+     
+         
       </div>
       <h2 className={`font-extrabold text-3xl opacity-75`}>
         {props.fullName}
