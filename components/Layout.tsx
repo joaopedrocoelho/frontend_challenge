@@ -6,7 +6,7 @@ import SearchBar from "../components/SearchBar/SearchBar";
 import Table from "../components/Table/Table";
 import Text from "../components/Text";
 
-import Pagination from "../components/Pagination/PaginationNav";
+
 import { useContext, useEffect, useState } from "react";
 import dataContext from "../context/dataContext";
 import ThemeSelector from "./Theme/ThemeSelector";
