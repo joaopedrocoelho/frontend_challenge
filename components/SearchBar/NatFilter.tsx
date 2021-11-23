@@ -73,6 +73,7 @@ const NatFilter = () => {
               key={`${nat}-${index}`}
               onClick={() => {
                 setSelected(nat);
+                setOpen(false);
               }}
               className={`flex flex-row flex-nowrap w-full 
               justify-center items-center  border-${color}-300 

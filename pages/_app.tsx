@@ -2,7 +2,6 @@ import 'tailwindcss/tailwind.css'
 
 import '../styles/animations.css';
 
-import '../styles/bg.css';
 
 import {  useState } from 'react';
 import dataContext from '../context/dataContext';
