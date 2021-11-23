@@ -13,6 +13,7 @@ const ThemeSelector = () => {
                 {colors.map((themeColor:Colors) => {
                     return(
                         <button 
+                        key={themeColor}
                         onClick={() => setColor(themeColor)}
                         className={`h-8 w-full bg-${themeColor}-400 
                         rounded-xl hover:opacity-50 border-4

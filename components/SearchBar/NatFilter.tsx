@@ -70,6 +70,7 @@ const NatFilter = () => {
         {nationalities.map((nat,index) => {
           return (
             <li
+              key={`${nat}-${index}`}
               onClick={() => {
                 setSelected(nat);
               }}
