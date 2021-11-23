@@ -41,18 +41,18 @@ const UserModal = (props: Props): JSX.Element => {
     props.gender === "male" ? (
       <Male className={`w-8 p-2`} />
     ) : (
-      <Female className={`w-4 block m-auto text-green-800 fill-current`} />
+      <Female className={`w-4 block m-auto text-${color}-800 fill-current`} />
     );
 
   return (
     <div
       className={`absolute w-5/6 h-max top-28 left-2/4 
         transform -translate-x-2/4 
-        bg-green-100 z-20 flex flex-col items-center rounded-3xl`}
+        bg-${color}-100 z-20 flex flex-col items-center rounded-3xl`}
     >
       <button onClick={() => push('/')} 
-      className={`absolute right-4 top-4 rounded-full bg-green-500 w-8 h-8`}>
-        <Close className={`w-4 h-4 text-green-900 fill-current m-auto`} /> </button>
+      className={`absolute right-4 top-4 rounded-full bg-${color}-500 w-8 h-8`}>
+        <Close className={`w-4 h-4 text-${color}-900 fill-current m-auto`} /> </button>
       <div className={`rounded-full overflow-hidden w-32 h-32 -mt-16`}>
         <Image src={imageSrc} width={130} height={130} />
       </div>
@@ -64,7 +64,7 @@ const UserModal = (props: Props): JSX.Element => {
       >
         <div className={`flex flex-row items-center my-2 flex-wrap`}>
           <span
-            className={`bg-green-400 rounded-full h-9 w-9 flex justify-center`}
+            className={`bg-${color}-400 rounded-full h-9 w-9 flex justify-center`}
           >
             {genderIcon}
           </span>
@@ -73,54 +73,54 @@ const UserModal = (props: Props): JSX.Element => {
         </div>
         <div className={`flex flex-row items-center my-2 flex-wrap`}>
         <span
-            className={`bg-green-400 rounded-full h-9 w-9 flex justify-center`}
+            className={`bg-${color}-400 rounded-full h-9 w-9 flex justify-center`}
           >
-          <Email className={`w-9 p-2 block m-auto text-green-800 fill-current`} />
+          <Email className={`w-9 p-2 block m-auto text-${color}-800 fill-current`} />
           </span>
           <h3 className={`text-lg font-semibold mx-2 opacity-75`}>Email:</h3>
           {props.email}
         </div>
         <div className={`flex flex-row items-center my-2 flex-wrap`}>
         <span
-            className={`bg-green-400 rounded-full h-9 w-9 flex justify-center`}
+            className={`bg-${color}-400 rounded-full h-9 w-9 flex justify-center`}
           >
-          <Cake className={`w-9 p-2 block m-auto text-green-800 fill-current`} />
+          <Cake className={`w-9 p-2 block m-auto text-${color}-800 fill-current`} />
           </span>
           <h3 className={`text-lg font-semibold mx-2 opacity-75`}>Birthday:</h3>
           {props.birthday}
         </div>
         <div className={`flex flex-row items-center my-2 flex-wrap`}>
         <span
-            className={`bg-green-400 rounded-full h-9 w-9 flex justify-center`}
+            className={`bg-${color}-400 rounded-full h-9 w-9 flex justify-center`}
           >
-          <Flag className={`w-8 p-2 block m-auto text-green-800 fill-current`} />
+          <Flag className={`w-8 p-2 block m-auto text-${color}-800 fill-current`} />
           </span>
           <h3 className={` text-lg font-semibold mx-2 opacity-75`}>Nationality:</h3>
           {props.nationality}
         </div>
         <div className={`flex flex-row items-center my-2 flex-wrap`}>
         <span
-            className={`bg-green-400 rounded-full h-9 w-9 flex justify-center`}
+            className={`bg-${color}-400 rounded-full h-9 w-9 flex justify-center`}
           >
-          <Phone className={`w-8 p-2 text-green-800 fill-current`} />
+          <Phone className={`w-8 p-2 text-${color}-800 fill-current`} />
           </span>
           <h3 className={` text-lg font-semibold mx-2 opacity-75`}>Phone:</h3>
           {props.phone}
         </div>
         <div className={`flex flex-row items-center my-2 flex-wrap`}>
         <span
-            className={`bg-green-400 rounded-full h-9 w-9 flex justify-center`}
+            className={`bg-${color}-400 rounded-full h-9 w-9 flex justify-center`}
           >
-          <Adress className={`w-8 p-2 text-green-800 fill-current`} />
+          <Adress className={`w-8 p-2 text-${color}-800 fill-current`} />
           </span>
           <h3 className={` text-lg font-semibold mx-2 opacity-75`}>Address:</h3>
           {props.address}
         </div>
         <div className={`flex flex-row items-center my-2 flex-wrap`}>
         <span
-            className={`bg-green-400 rounded-full h-9 w-9 flex justify-center`}
+            className={`bg-${color}-400 rounded-full h-9 w-9 flex justify-center`}
           >
-          <Hashtag className={`w-8 p-2 text-green-800 fill-current`} />
+          <Hashtag className={`w-8 p-2 text-${color}-800 fill-current`} />
           </span>
           <h3 className={` text-lg font-semibold mx-2 opacity-75`}>ID:</h3>
           {props.id}
@@ -131,9 +131,9 @@ const UserModal = (props: Props): JSX.Element => {
             navigator.clipboard.writeText(userURL)
         }}
         className={`mb-4 rounded-lg flex flex-row flex-nowrap 
-        place-items-center p-4 bg-green-300 w-max
+        place-items-center p-4 bg-${color}-300 w-max
         cursor-pointer`} >
-            <Share className={`w-6 text-green-900 fill-current mr-3`}/>
+            <Share className={`w-6 text-${color}-900 fill-current mr-3`}/>
             Copy user URL
         </button>
     </div>

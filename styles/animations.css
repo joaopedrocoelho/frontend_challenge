@@ -39,3 +39,35 @@
 
     animation-fill-mode: forwards;
   }
+
+  @keyframes dropDown {
+    from {
+      opacity: 0;
+      transform: scaleY(0);
+      }
+  
+    to {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+  
+  .dropDown {
+    animation-name: dropDown;
+    animation-duration:  300ms;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    transform-origin: top;
+
+  }
+
+  .dropDownReverse {
+    animation-name: dropDown;
+    animation-duration:  300ms;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-direction:reverse;
+    transform-origin: top;
+    animation-fill-mode: forwards;
+   }

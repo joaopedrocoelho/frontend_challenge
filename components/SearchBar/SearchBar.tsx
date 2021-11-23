@@ -2,9 +2,13 @@ import React, { useEffect, useRef, useContext, useState } from "react";
 import SearchIcon from "./search.svg";
 import searchContext from "../../context/searchContext";
 import LoadingIcon from "../LoadMore/loading.svg";
+import GenderFilter from "./GenderFilter";
+import NatFilter from "./NatFilter";
+import ThemeContext from "../../context/themeContext";
 
 
 const SearchBar = () => {
+  const {color} = useContext(ThemeContext);
   const inputRef = useRef<HTMLInputElement>(null);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -26,6 +30,7 @@ const SearchBar = () => {
   }, [searchTerm]);
 
   return (
+    <>
     <div
       className={`relative flex flex-row justify-start items-center mt-4 w-full`}
     >
@@ -37,8 +42,8 @@ const SearchBar = () => {
           e.preventDefault();
           setSearchTerm(e.target.value);
         }}
-        className={`w-full border-2 border-green-900 
-                p-2 rounded-md placeholder-green-900
+        className={`w-full border-2 border-${color}-900 
+                p-2 rounded-md placeholder-${color}-900
                 placeholder-opacity-50 `}
       />
       <span className={`flex place-items-center`}>
@@ -46,16 +51,21 @@ const SearchBar = () => {
           <LoadingIcon
             className={`
             w-6 h-6 absolute right-3.5 z-10 fill-current 
-            text-green-900 animate-spin`}
+            text-${color}-900 animate-spin`}
           />
         ) : (
           <SearchIcon
             className={`
-            w-6 h-6 absolute right-3.5 z-10 fill-current text-green-900`}
+            w-6 h-6 absolute right-3.5 z-10 fill-current text-${color}-900`}
           />
         )}
       </span>
+    </div><div
+        className={`flex flex-row  my-4 justify-start w-full gap-6 flex-wrap`}>
+    <GenderFilter />
+    <NatFilter />
     </div>
+    </>
   );
 };
 

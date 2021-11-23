@@ -9,6 +9,7 @@ import Text from "../components/Text";
 import Pagination from "../components/Pagination/PaginationNav";
 import { useContext, useEffect, useState } from "react";
 import dataContext from "../context/dataContext";
+import ThemeSelector from "./Theme/ThemeSelector";
 
 const Layout = ({ blur }: { blur?: boolean }): JSX.Element => {
   const { isLoading } = useContext(dataContext);
@@ -19,7 +20,7 @@ const Layout = ({ blur }: { blur?: boolean }): JSX.Element => {
     <div
       className={`transition-all duration-1000 ${
         blur ? `blur-background` : ``
-      }`}
+      } dark:bg-gray-800`}
     >
       <Head>
         <title>Pharma Inc.</title>
@@ -171,8 +172,9 @@ and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
       </Head>
       <Nav />
       <div
-        className={`flex flex-col flex-nowrap place-items-center w-2/4 mx-auto mt-16`}
+        className={`flex flex-col flex-nowrap place-items-center w-2/4 mx-auto`}
       >
+        <ThemeSelector />
         <Text />
         <SearchBar />
         <Table />

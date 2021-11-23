@@ -1,12 +1,14 @@
-import React, { useState, useEffect, useContext, useCallback } from "react";
+import React, { useState,  useContext} from "react";
 import LoadingIcon from "./loading.svg";
-import Link from "next/link";
+
 import { useRouter } from "next/router";
 import FetchData from "../../hooks/FetchData";
 import dataContext from "../../context/dataContext";
-import pageContext from "../../context/pageNumber";
+import ThemeContext from "../../context/themeContext";
+
 
 const LoadMore = ():JSX.Element => {
+  const {color} = useContext(ThemeContext);
   const { pathname, asPath, query } = useRouter();
   const { data, setData, isLoading, setLoading } = useContext(dataContext);
   const [pagesLoaded, setPagesLoaded] = useState(1);
@@ -24,9 +26,10 @@ const LoadMore = ():JSX.Element => {
           setLoading(false);
         });
       }}
-      className={`mt-6  rounded-lg flex flex-row flex-nowrap 
-        place-items-center p-4 bg-green-100 w-max
-        cursor-pointer`}
+      className={`my-6  rounded-lg flex flex-row flex-nowrap 
+        place-items-center p-4 bg-${color}-100 w-max
+        cursor-pointer
+        hover:bg-${color}-300`}
     >
       <LoadingIcon className={`w-8 ${isLoading && `animate-spin`}`} />
       <span className={`pl-2`}>{isLoading ? "Loading" : "Load More"}</span>
