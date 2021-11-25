@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Image from "next/image";
 import Female from "./icons/female.svg";
 import Male from "./icons/male.svg";
@@ -16,6 +16,7 @@ import { titleCase } from "title-case";
 import { Router, useRouter } from "next/router";
 import ThemeContext from "../../context/themeContext";
 
+
 interface Props {
   picture: string;
   fullName: string;
@@ -30,6 +31,8 @@ interface Props {
 }
 
 const UserModal = (props: Props): JSX.Element => {
+  const [showAlert, setShowAlert] = useState(false)
+  const [alertMessage, setAlertMessage] = useState(`⚠ Copied URL to clipboard!`)
     const {asPath, push} = useRouter()
     const  {color} = useContext(ThemeContext)
 
@@ -132,9 +135,23 @@ const UserModal = (props: Props): JSX.Element => {
           {props.id}
         </div>
       </div>
+      <div>
         <button 
         onClick={() => {
-            navigator.clipboard.writeText(userURL)
+            navigator.clipboard.writeText(userURL).then((success) =>{
+              setShowAlert(true);
+              setTimeout((() => {
+                setAlertMessage(`⚠ Copied URL to clipboard!`)
+                setShowAlert(false);
+              }), 1400)
+            }, (err) => {
+              setShowAlert(true);
+              setTimeout((() => {
+                setAlertMessage(`⚠ Sorry, an error occurred`)
+                setShowAlert(false);
+              }), 1200)
+
+            });
         }}
         className={`mb-4 rounded-lg flex flex-row flex-nowrap 
         place-items-center p-4 bg-${color}-300 w-max
@@ -142,7 +159,8 @@ const UserModal = (props: Props): JSX.Element => {
             <Share className={`w-6 text-${color}-900 fill-current mr-3`}/>
             Copy user URL
         </button>
-    </div>
+        {showAlert && <div className={`absolute -my-36 fadeInOut pointer-events-nones cursor-default transform rounded-xl p-2 bg-${color}-500 text-${color}-50 z-50`}>Copied URL to clipboard!</div>}
+    </div></div>
   );
 };
 

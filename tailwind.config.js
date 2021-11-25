@@ -146,6 +146,15 @@ module.exports = {
       "text-pink-700",
       "text-pink-800",
       "text-pink-900",
+      "border-green-900",
+      "border-gray-900",
+      "border-red-900",
+      "border-yellow-900",
+      "border-blue-900",
+      "border-indigo-900",
+      "border-purple-900",
+      "border-pink-900",
+      
  ]
   },
   darkMode: 'media', // or 'media' or 'class'
