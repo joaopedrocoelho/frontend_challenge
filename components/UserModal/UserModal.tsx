@@ -159,7 +159,7 @@ const UserModal = (props: Props): JSX.Element => {
             <Share className={`w-6 text-${color}-900 fill-current mr-3`}/>
             Copy user URL
         </button>
-        {showAlert && <div className={`absolute -my-36 fadeInOut pointer-events-nones cursor-default transform rounded-xl p-2 bg-${color}-500 text-${color}-50 z-50`}>Copied URL to clipboard!</div>}
+        {showAlert && <div className={`absolute -my-36 fadeInOut pointer-events-nones cursor-default transform rounded-xl p-2 bg-${color}-500 text-${color}-50 z-50`}>{alertMessage}</div>}
     </div></div>
   );
 };

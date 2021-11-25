@@ -9,10 +9,13 @@ import Text from "../components/Text";
 
 import { useContext, useEffect, useState } from "react";
 import dataContext from "../context/dataContext";
+import errorContext from "../context/errorContext";
 import ThemeSelector from "./Theme/ThemeSelector";
+import ErrorMessage from "./ErrorMessage";
 
 const Layout = ({ blur }: { blur?: boolean }): JSX.Element => {
   const { isLoading } = useContext(dataContext);
+  const { error}  = useContext(errorContext);
 
   useEffect(() => {}, [isLoading]);
 
@@ -177,7 +180,7 @@ and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
         <ThemeSelector />
         <Text />
         <SearchBar />
-        <Table />
+        {error != '' ? <ErrorMessage error={error} /> : <Table />}
         <LoadMore />
       </div>
     </div>

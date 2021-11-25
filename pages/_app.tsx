@@ -1,39 +1,38 @@
-import 'tailwindcss/tailwind.css'
+import "tailwindcss/tailwind.css";
 
-import '../styles/animations.css';
-
-
-import {  useState } from 'react';
-import dataContext from '../context/dataContext';
+import "../styles/animations.css";
 
 
-import type { AppProps } from 'next/app'
-import { useData } from '../hooks/useData';
-import pageContext from '../context/pageNumber';
+import dataContext from "../context/dataContext";
 
-import useSearch from '../hooks/useSearch';
-import searchContext from '../context/searchContext';
-import ThemeContext from '../context/themeContext';
-import { useTheme } from '../hooks/useTheme';
+import type { AppProps } from "next/app";
+import { useData } from "../hooks/useData";
+
+
+import useSearch from "../hooks/useSearch";
+import searchContext from "../context/searchContext";
+import ThemeContext from "../context/themeContext";
+import { useTheme } from "../hooks/useTheme";
+import errorContext from "../context/errorContext";
+import useError from "../hooks/useError";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const dataHook = useData();
   const searchHook = useSearch();
+  const errorHook = useError();
   const colorTheme = useTheme();
-  const [pagesLoaded, nextPage] = useState(1)
 
-
-  return(
+  return (
     <ThemeContext.Provider value={colorTheme}>
-    <pageContext.Provider value={{pagesLoaded,nextPage}}>
-    <dataContext.Provider value={dataHook}>
-    <searchContext.Provider value={searchHook}>
-      <Component {...pageProps} />
-      </searchContext.Provider>
-    </dataContext.Provider>
-    </pageContext.Provider>
+      <dataContext.Provider value={dataHook}>
+        <errorContext.Provider value={errorHook}>
+          <searchContext.Provider value={searchHook}>
+            <Component {...pageProps} />
+          </searchContext.Provider>
+        </errorContext.Provider>
+      </dataContext.Provider>
     </ThemeContext.Provider>
-  ) 
+  );
 }
 
-export default MyApp
+export default MyApp;
