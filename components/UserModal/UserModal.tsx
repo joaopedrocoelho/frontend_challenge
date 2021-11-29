@@ -60,7 +60,7 @@ const UserModal = (props: Props): JSX.Element => {
       className={`absolute right-4 top-4 rounded-full bg-${color}-500 w-8 h-8`}>
         <Close className={`w-4 h-4 text-${color}-900 fill-current m-auto`} /> </button>
       <div className={`rounded-full overflow-hidden w-32 h-32 -mt-16 bg-${color}-400 user-image`}>
-       <Image src={imageSrc} width={130} height={130} className={`z-20 absolute transform`} />
+       <Image src={imageSrc} width={130} height={130} className={`z-20 absolute transform`} alt={`user ${props.fullName} photo`}/>
         <User className={`w-full h-full p-8 text-${color}-900 fill-current m-auto z-0 transform -translate-y-full`} />
      
          
