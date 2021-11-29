@@ -37,6 +37,8 @@
     <br />
     <a href="https://frontend-challenge-joaopedrocoelho.vercel.app/">Live Demo</a>
     ·
+     <a href="https://www.loom.com/share/00feb4037fa043f6a96ce70baa186921/">Video Presentation(Portuguese)</a>
+    ·
     <a href="https://github.com/joaopedrocoelho/frontend_challenge/issues">Report Bug</a>
     ·
     <a href="https://github.com/joaopedrocoelho/frontend_challenge/issues">Request Feature</a>
