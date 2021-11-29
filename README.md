@@ -110,14 +110,15 @@ This projects fetches user data from the [Randomuser API](https://randomuser.me/
    npm install
    ```
 #### Docker
-1.Pull the container
+
+1. Pull the container
   ```sh
    docker pull jpcoelho89/frontend-challenge
    ```
-2.Run the container
-```sh
+2. Run the container
+  ```sh
   docker run -dp 3000:3000 jpcoelho89/frontend-challenge
-```
+  ```
 
 
   <p align="right">(<a href="#top">back to top</a>)</p>
